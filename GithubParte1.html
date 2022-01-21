@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 1</title>
+</head>
+<body>
+    <input type="text" id="nombre" placeholder="Ingresa Nombre">
+    <input type="text" id="edad" placeholder="Ingresa tu edad">
+    <button id="boton">Enviar</button>
+
+    <div id="contenedor"></div>
+
+    <script>
+//         Part 1 Javascript
+// Create a class called Person which accepts the name of a person as a string, and his/her/their age as a number.
+
+// The Person class should have a method called Describe which returns a string with the following syntax: "name, age years old".
+
+// For example, if Manny is 19 years old the function Describe of his object will return "Manny, 19 years old".
+        class Persona {
+            constructor(nombre,edad){
+                this.nombre = nombre;
+                this.edad = edad;
+            }
+
+            RetonarNombre(nombre,edad){
+                let mensaje = `${this.nombre}, ${this.edad} years old`;
+                return mensaje;
+            }
+        }
+
+        let nombre1 = prompt("Ingresa tu nombre: ");
+        let edad1 = prompt("Ingresa tu edad");
+
+        const nombreEdad = new Persona(nombre1,edad1);
+        alert(nombreEdad.RetonarNombre())
+        
+
+        // Create an HTML page that has 2 input boxes: one for name and another for age. When someone enters a name and age, the page will show a list of "{Name}, {x} years old".
+
+        let nameInput = document.getElementById("nombre");
+        let ageInput = document.getElementById("edad");
+        let boton = document.getElementById("boton");
+
+        boton.addEventListener("click", ()=> {
+            let contenedor = document.getElementById("contenedor");
+            contenedor.innerHTML += `
+            <h2>${nameInput.value}, ${ageInput.value} years old</h2>
+            `
+        })
+
+    </script>
+</body>
+</html>

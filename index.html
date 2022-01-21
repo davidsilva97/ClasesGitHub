@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clases</title>
+  </head>
+  <body>
+      <div id="Id"></div>
+    <script>
+      class padre {
+        constructor(apellido) {
+          this.apellidoPadre = apellido;
+        }
+      }
+
+      class hijo extends padre {
+        constructor(nombre, apellido) {
+          super(apellido);
+          this.nombreHijo = nombre;
+        }
+
+        registro() {
+          return (
+            "El nombre del hijo será: " +
+            this.nombreHijo +
+            " " +
+            this.apellidoPadre
+          );
+        }
+      }
+
+        function registrar(){
+            let hijos = prompt("Ingresa el numero de hijos");
+            let apellidoPaterno  = prompt("Ingresa apellido: ");
+            Number(hijos);
+            for(let i = 0; i< hijos; i++){
+                let hijoy = prompt("Ingresa el nombre del hijo "+(i+1)+":");
+                let Hijo1 = new hijo(hijoy, apellidoPaterno);
+                // alert(Hijo1.registro())
+                let contenedor = document.getElementById("Id").innerHTML += `<p>${Hijo1.registro()}</p>`;
+            }
+        }
+        registrar();
+
+    //   document.getElementById("Id").innerHTML = Hijo1.registro();
+    //   document.getElementById("Id2").innerHTML = Hijo2.registro();
+    </script>
+  </body>
+</html>
